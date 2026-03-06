@@ -13,8 +13,10 @@ const initialReminders = [
 const ReminderList = () => {
     const [reminders, setReminders] = useState(initialReminders);
     const [completing, setCompleting] = useState(new Set());
+    const [expandedId, setExpandedId] = useState(null);
 
-    const startComplete = (id) => {
+    const startComplete = (e, id) => {
+        e.stopPropagation();
         setCompleting(prev => new Set([...prev, id]));
         setTimeout(() => {
             setReminders(prev => prev.filter(r => r.id !== id));
@@ -43,18 +45,23 @@ const ReminderList = () => {
                 <AnimatePresence>
                     {reminders.map((r, index) => {
                         const isCompleting = completing.has(r.id);
+                        const isExpanded = expandedId === r.id;
                         return (
                             <motion.div
                                 key={r.id}
                                 className={styles.reminderCard}
-                                style={{ borderTop: `3px solid ${r.color}` }}
+                                style={{
+                                    borderTop: `3px solid ${r.color}`,
+                                    width: isExpanded ? 200 : 'calc(33.33% - 14px)',
+                                    minWidth: isExpanded ? 200 : 100
+                                }}
                                 initial={{ opacity: 0, scale: 0.85, y: 10 }}
                                 animate={{ opacity: isCompleting ? 0.4 : 1, scale: isCompleting ? 0.91 : 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 0.7, x: -16 }}
                                 transition={{ duration: 0.35, delay: 0.05 * index }}
-                                onClick={() => !isCompleting && startComplete(r.id)}
+                                onClick={() => !isCompleting && setExpandedId(isExpanded ? null : r.id)}
                                 whileHover={{ scale: 1.03, y: -2 }}
-                                whileTap={{ scale: 0.96 }}
+                                whileTap={!isExpanded ? { scale: 0.96 } : {}}
                                 layout
                             >
                                 {/* Completion overlay */}
@@ -101,6 +108,31 @@ const ReminderList = () => {
                                         {r.stat}
                                     </span>
                                 ) : null}
+
+                                {/* Expanded Content */}
+                                <AnimatePresence>
+                                    {isExpanded && (
+                                        <motion.div
+                                            className={styles.expandedContent}
+                                            initial={{ opacity: 0, height: 0 }}
+                                            animate={{ opacity: 1, height: 'auto' }}
+                                            exit={{ opacity: 0, height: 0 }}
+                                            transition={{ duration: 0.25 }}
+                                        >
+                                            <div className={styles.expandedDetails}>
+                                                <p>Növbəti: <strong>12 dəq</strong></p>
+                                                <p>Tarixçə: <strong>Bugün 3 dəfə</strong></p>
+                                            </div>
+                                            <button
+                                                className={styles.completeBtn}
+                                                style={{ backgroundColor: `${r.color}25`, color: r.color }}
+                                                onClick={(e) => startComplete(e, r.id)}
+                                            >
+                                                <CheckCircle2 size={16} /> Tamamla
+                                            </button>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
                             </motion.div>
                         );
                     })}

@@ -15,6 +15,14 @@ const Dashboard = () => {
     const total = 6;
     const completed = 3;
     const percent = Math.round((completed / total) * 100);
+    const [animatedPercent, setAnimatedPercent] = useState(0);
+
+    React.useEffect(() => {
+        const timer = setTimeout(() => {
+            setAnimatedPercent(percent);
+        }, 150);
+        return () => clearTimeout(timer);
+    }, [percent]);
 
     return (
         <section className={styles.dashboardSection}>
@@ -37,7 +45,7 @@ const Dashboard = () => {
                     <motion.div
                         className={styles.progressBarFill}
                         initial={{ width: 0 }}
-                        animate={{ width: `${percent}%` }}
+                        animate={{ width: `${animatedPercent}%` }}
                         transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
                     />
                 </div>
