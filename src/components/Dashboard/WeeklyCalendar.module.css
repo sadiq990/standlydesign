@@ -52,7 +52,7 @@
 .dayLabel {
     font-size: 11px;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--c-text-secondary);
     font-family: var(--font-body);
     text-transform: uppercase;
     letter-spacing: 0.02em;
@@ -73,7 +73,7 @@
     justify-content: center;
     font-size: 16px;
     font-weight: 600;
-    color: #ffffff;
+    color: var(--c-text-primary);
     transition: all 0.25s ease;
     font-family: var(--font-hero);
 }
@@ -94,7 +94,7 @@
 }
 
 .taskDotVisible {
-    background: rgba(255, 255, 255, 0.5);
+    background: var(--c-border);
 }
 
 .taskDotActive {

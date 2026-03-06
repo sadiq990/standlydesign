@@ -18,9 +18,34 @@
     font-weight: 700;
     font-family: var(--font-hero);
     letter-spacing: -0.02em;
-    color: #ffffff;
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+    color: var(--c-text-primary);
     line-height: 1.2;
+}
+
+.subtitleRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.nextSubtitle {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--c-text-secondary);
+    font-family: var(--font-body);
+}
+
+.nextTime {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--c-primary-teal);
+    background: var(--c-surface);
+    padding: 3px 10px;
+    border-radius: 9999px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--c-border);
+    letter-spacing: 0.02em;
 }
 
 .metaRow {
@@ -80,18 +105,17 @@
     width: 38px;
     height: 38px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.15);
+    background: var(--c-surface);
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(6px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    color: #fff;
+    border: 1px solid var(--c-border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    color: var(--c-text-primary);
     cursor: pointer;
     transition: background 0.2s, box-shadow 0.2s;
 }
 
 .themeToggle:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: var(--c-border);
 }

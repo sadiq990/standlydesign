@@ -16,7 +16,7 @@
     font-family: var(--font-hero);
     font-size: 17px;
     font-weight: 700;
-    color: #ffffff;
+    color: var(--c-text-primary);
     letter-spacing: -0.01em;
 }
 

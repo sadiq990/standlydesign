@@ -42,6 +42,15 @@ const Header = () => {
     >
       <div className={styles.left}>
         <h1 className={styles.greeting}>Günortanız xeyir, Ali!</h1>
+        <motion.div
+          className={styles.subtitleRow}
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.1, duration: 0.5 }}
+        >
+          <span className={styles.nextSubtitle}>Növbəti: Su içmək</span>
+          <span className={styles.nextTime}>23 dəq</span>
+        </motion.div>
       </div>
       <div className={styles.rightGroup}>
         <motion.button
@@ -59,7 +68,7 @@ const Header = () => {
               transition={{ duration: 0.3, type: "spring", bounce: 0.4 }}
               style={{ display: 'flex' }}
             >
-              {theme === 'dark' ? <Sun size={18} color="#fff" /> : <Moon size={18} color="#fff" />}
+              {theme === 'dark' ? <Sun size={18} color="currentColor" /> : <Moon size={18} color="currentColor" />}
             </motion.div>
           </AnimatePresence>
         </motion.button>

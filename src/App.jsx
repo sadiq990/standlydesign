@@ -26,7 +26,7 @@ function App() {
   });
 
   return (
-    <div style={{ background: screen === 'home' ? colors.gradientHome : colors.bgLight, minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ background: screen === 'home' ? 'var(--gradient-bg)' : 'var(--c-bg)', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <AnimatePresence mode="wait">
         {screen === 'splash' && (
           <Splash key="splash" onGetStarted={() => setScreen('onboarding')} />

@@ -13,6 +13,11 @@
   --c-text-primary: #1A202C;
   --c-text-secondary: #718096;
   --gradient-home: linear-gradient(135deg, var(--c-primary-green) 0%, var(--c-light-green) 100%);
+  --gradient-bg: linear-gradient(135deg, #F5F7FA 0%, #EAF7F1 100%);
+
+  --c-surface-reminder: rgba(255, 255, 255, 0.85);
+  --reminder-blur: blur(14px);
+  --reminder-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
 
   /* Dynamically adjust borders and subtle overlays */
   --c-border: rgba(0, 0, 0, 0.05);
@@ -54,6 +59,10 @@
   --c-primary-green: #68D391;
   --shadow-card: 0 16px 32px rgba(0, 0, 0, 0.4);
   --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.2);
+  --gradient-bg: linear-gradient(135deg, #0C121A 0%, #111820 100%);
+  --c-surface-reminder: rgba(20, 28, 36, 0.6);
+  --reminder-blur: blur(16px);
+  --reminder-shadow: 0px 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -70,6 +79,10 @@
     --c-primary-green: #68D391;
     --shadow-card: 0 16px 32px rgba(0, 0, 0, 0.4);
     --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.2);
+    --gradient-bg: linear-gradient(135deg, #0C121A 0%, #111820 100%);
+    --c-surface-reminder: rgba(20, 28, 36, 0.6);
+    --reminder-blur: blur(16px);
+    --reminder-shadow: 0px 10px 30px rgba(0, 0, 0, 0.35);
   }
 }
 

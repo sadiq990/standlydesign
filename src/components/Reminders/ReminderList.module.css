@@ -16,9 +16,8 @@
     font-family: var(--font-hero);
     font-size: 17px;
     font-weight: 700;
-    color: #ffffff;
+    color: var(--c-text-primary);
     letter-spacing: -0.01em;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -58,10 +57,12 @@
     position: relative;
     overflow: hidden;
     text-align: center;
-    background: var(--c-surface);
+    background: var(--c-surface-reminder);
     border-radius: 24px;
-    box-shadow: 0 12px 32px rgba(32, 80, 114, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    box-shadow: var(--reminder-shadow);
+    backdrop-filter: var(--reminder-blur);
+    -webkit-backdrop-filter: var(--reminder-blur);
+    border: 1px solid var(--c-border);
 }
 
 .iconWrapper {
