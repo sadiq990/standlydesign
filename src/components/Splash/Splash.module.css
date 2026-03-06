@@ -1,0 +1,71 @@
+.splashContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 24px;
+    z-index: 100;
+    color: white;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    text-align: center;
+}
+
+.title {
+    font-family: var(--font-hero);
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    margin-bottom: 12px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.slogan {
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 0.9;
+    letter-spacing: 0.02em;
+    max-width: 250px;
+    line-height: 1.4;
+}
+
+.getStartedBtn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    padding: 8px 8px 8px 24px;
+    border-radius: 999px;
+    box-shadow: 0 16px 32px rgba(32, 80, 114, 0.3);
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 24px;
+}
+
+.getStartedBtn span {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--c-primary-green);
+}
+
+.iconCircle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--c-soft-mint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

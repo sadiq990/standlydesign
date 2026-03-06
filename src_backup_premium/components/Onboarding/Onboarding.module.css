@@ -1,0 +1,141 @@
+.container {
+    position: absolute;
+    inset: 0;
+    background: var(--c-bg);
+    display: flex;
+    flex-direction: column;
+    z-index: 200;
+}
+
+.header {
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.backBtn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--c-text-primary);
+    transition: background 0.2s;
+}
+
+.backBtn:active {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.stepIndicator {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(32, 80, 114, 0.15);
+    transition: all 0.3s ease;
+}
+
+.dotActive {
+    width: 20px;
+    background: var(--c-primary-teal);
+    border-radius: 9999px;
+}
+
+.content {
+    flex: 1;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--c-text-primary);
+    font-family: var(--font-hero);
+    margin-bottom: 32px;
+    line-height: 1.25;
+}
+
+.timeInput {
+    background: var(--c-surface);
+    border: 2px solid rgba(86, 197, 150, 0.2);
+    border-radius: var(--radius-lg);
+    font-size: 32px;
+    font-weight: 700;
+    font-family: var(--font-hero);
+    color: var(--c-primary-teal);
+    padding: 20px 24px;
+    width: 100%;
+    text-align: center;
+    outline: none;
+    box-shadow: 0 8px 24px rgba(32, 80, 114, 0.06);
+    cursor: pointer;
+}
+
+.timeInput:focus {
+    border-color: var(--c-primary-teal);
+}
+
+.optionsGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.optionCard {
+    background: var(--c-surface);
+    border: 2px solid transparent;
+    border-radius: var(--radius-lg);
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(32, 80, 114, 0.04);
+    transition: all 0.2s;
+    text-align: left;
+}
+
+.optionSelected {
+    border-color: var(--c-primary-teal);
+    background: rgba(50, 157, 156, 0.05);
+}
+
+.optionLabel {
+    font-weight: 600;
+    font-size: 15px;
+    font-family: var(--font-body);
+    color: var(--c-text-primary);
+}
+
+.footer {
+    padding: 24px;
+}
+
+.nextBtn {
+    background: linear-gradient(135deg, var(--c-primary-teal), var(--c-primary-dark));
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: var(--font-body);
+    width: 100%;
+    padding: 18px;
+    border-radius: var(--radius-full);
+    box-shadow: 0 8px 24px rgba(32, 80, 114, 0.25);
+    letter-spacing: 0.02em;
+}
+
+.nextBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

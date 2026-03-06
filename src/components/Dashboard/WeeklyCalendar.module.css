@@ -1,0 +1,103 @@
+.calendarContainer {
+    width: 100%;
+    overflow: hidden;
+}
+
+.scrollWrapper {
+    display: flex;
+    gap: 8px;
+    padding: 4px 2px 6px 2px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    justify-content: space-between;
+}
+
+.scrollWrapper::-webkit-scrollbar {
+    display: none;
+}
+
+/* ─── Day Pill ─────────────────────────────────────── */
+.dayPill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    height: 70px;
+    padding: 8px 4px 6px;
+    border-radius: 20px;
+    background: transparent;
+    border: none;
+    scroll-snap-align: center;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    gap: 4px;
+    cursor: pointer;
+    flex: 1;
+    max-width: 52px;
+}
+
+.dayPill:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.activePill {
+    background: var(--c-surface);
+    box-shadow: 0 8px 16px rgba(32, 80, 114, 0.12);
+}
+
+/* ─── Day Label (S M T W …) ───────────────────────── */
+.dayLabel {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.activeDayLabel {
+    color: var(--c-primary-teal);
+    font-weight: 700;
+}
+
+/* ─── Date Number Circle ─────────────────────────── */
+.dateCircle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    transition: all 0.25s ease;
+    font-family: var(--font-hero);
+}
+
+.activeCircle {
+    color: var(--c-text-primary);
+    font-weight: 700;
+}
+
+/* ─── Task Dot ───────────────────────────────────── */
+.taskDot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: transparent;
+    transition: background 0.2s ease;
+    margin-top: 0px;
+}
+
+.taskDotVisible {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.taskDotActive {
+    background: var(--c-primary-teal);
+    box-shadow: 0 0 4px rgba(50, 157, 156, 0.6);
+}

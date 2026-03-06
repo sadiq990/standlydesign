@@ -1,0 +1,181 @@
+.dashboardSection {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ─── Progress Card ───────────────────────────────── */
+.progressCard {
+    padding: 26px 24px 20px 24px;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 32px;
+    background: linear-gradient(145deg, #163C53 0%, #1A4D60 50%, #226768 100%);
+    box-shadow:
+        0 20px 48px rgba(0, 0, 0, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Subtle shimmer overlay */
+.progressCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+}
+
+.cardLabel {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+    font-family: var(--font-body);
+}
+
+/* ─── Linear Progress Bar ───────────────────────── */
+.progressBarTrack {
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.progressBarFill {
+    height: 100%;
+    background: linear-gradient(90deg, #56C596, #CFF4D2);
+    border-radius: 9999px;
+    box-shadow: 0 0 16px rgba(123, 228, 149, 0.4);
+}
+
+/* ─── Stats Row ─────────────────────────────────── */
+.statsRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.completedText {
+    font-size: 18px;
+    font-weight: 800;
+    color: #ffffff;
+    font-family: var(--font-hero);
+    letter-spacing: -0.02em;
+}
+
+.percentBadge {
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.12);
+    padding: 3px 12px;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* ─── Mini Smart Stats ──────────────────────────── */
+.miniStats {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 10px 0 6px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 2px;
+}
+
+.miniStat {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+    justify-content: center;
+}
+
+.miniStat+.miniStat {
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.miniStatText {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: var(--font-body);
+    white-space: nowrap;
+}
+
+/* ─── Expanded Task List ──────────────────────── */
+.expandedTasks {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow: hidden;
+}
+
+.divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 10px 0 6px 0;
+}
+
+.taskItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 7px 2px;
+}
+
+.taskIconBg {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.85);
+    flex-shrink: 0;
+}
+
+.taskText {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.taskTime {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+    min-width: 44px;
+    font-family: var(--font-body);
+}
+
+.taskName {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.92);
+    font-family: var(--font-body);
+}
+
+/* ─── Tap Hint ────────────────────────────────── */
+.tapHint {
+    text-align: center;
+    font-size: 10px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.3);
+    padding-top: 8px;
+    letter-spacing: 0.04em;
+    font-family: var(--font-body);
+}

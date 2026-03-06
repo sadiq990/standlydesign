@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap');
+
+:root {
+  /* Centralized Color Mapping */
+  --c-primary-dark: #205072;
+  --c-primary-teal: #329D9C;
+  --c-primary-green: #56C596;
+  --c-light-green: #7BE495;
+  --c-soft-mint: #CFF4D2;
+
+  --c-bg: #F7FAF6;
+  --c-surface: #FFFFFF;
+  --c-text-primary: #1A202C;
+  --c-text-secondary: #718096;
+
+  /* Typography */
+  --font-hero: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Radii */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 4px 12px rgba(32, 80, 114, 0.05);
+  --shadow-card: 0 12px 24px rgba(32, 80, 114, 0.08);
+  --shadow-float: 0 16px 32px rgba(86, 197, 150, 0.25);
+  --shadow-glow: 0 8px 24px rgba(86, 197, 150, 0.4);
+
+  /* Legacy aliases — used by WeeklyCalendar & other components */
+  --c-dark-green: #205072;
+  --c-forest-green: #329D9C;
+  --c-moss-green: #56C596;
+  --c-sage-green: #7BE495;
+  --c-pale-green: #CFF4D2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--c-text-primary);
+  background-color: var(--c-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+  background-color: var(--c-bg);
+  overflow-x: hidden;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-outfit {
+  font-family: var(--font-hero);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.clean-card {
+  background: var(--c-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: all 0.25s ease;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+/* Hide Scrollbar but keep functionality */
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

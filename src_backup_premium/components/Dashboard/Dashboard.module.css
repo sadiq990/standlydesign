@@ -1,0 +1,179 @@
+.dashboardSection {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ─── Progress Card ───────────────────────────────── */
+.progressCard {
+    padding: 22px 22px 14px 22px;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(140deg, #1A4560 0%, #205072 45%, #2A7A7B 100%);
+    box-shadow:
+        0 12px 32px rgba(26, 69, 96, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: box-shadow 0.3s ease;
+    position: relative;
+}
+
+/* Subtle shimmer overlay */
+.progressCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+}
+
+.cardLabel {
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 14px;
+    font-family: var(--font-body);
+}
+
+/* ─── Linear Progress Bar ───────────────────────── */
+.progressBarTrack {
+    width: 100%;
+    height: 7px;
+    background: rgba(255, 255, 255, 0.14);
+    border-radius: 9999px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.progressBarFill {
+    height: 100%;
+    background: linear-gradient(90deg, #56C596, #7BE495, #CFF4D2);
+    border-radius: 9999px;
+    box-shadow: 0 0 12px rgba(86, 197, 150, 0.6);
+}
+
+/* ─── Stats Row ─────────────────────────────────── */
+.statsRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.completedText {
+    font-size: 18px;
+    font-weight: 800;
+    color: #ffffff;
+    font-family: var(--font-hero);
+    letter-spacing: -0.02em;
+}
+
+.percentBadge {
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.12);
+    padding: 3px 12px;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* ─── Mini Smart Stats ──────────────────────────── */
+.miniStats {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 10px 0 6px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 2px;
+}
+
+.miniStat {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+    justify-content: center;
+}
+
+.miniStat+.miniStat {
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.miniStatText {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: var(--font-body);
+    white-space: nowrap;
+}
+
+/* ─── Expanded Task List ──────────────────────── */
+.expandedTasks {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow: hidden;
+}
+
+.divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 10px 0 6px 0;
+}
+
+.taskItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 7px 2px;
+}
+
+.taskIconBg {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.85);
+    flex-shrink: 0;
+}
+
+.taskText {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.taskTime {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+    min-width: 44px;
+    font-family: var(--font-body);
+}
+
+.taskName {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.92);
+    font-family: var(--font-body);
+}
+
+/* ─── Tap Hint ────────────────────────────────── */
+.tapHint {
+    text-align: center;
+    font-size: 10px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.3);
+    padding-top: 8px;
+    letter-spacing: 0.04em;
+    font-family: var(--font-body);
+}
