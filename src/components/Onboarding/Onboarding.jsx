@@ -5,7 +5,9 @@ import {
     Sunrise, Moon, Building2, UtensilsCrossed,
     PersonStanding, Droplets, Eye, Dumbbell, Heart
 } from 'lucide-react';
+import AnimatedClock from '../common/AnimatedClock';
 import styles from './Onboarding.module.css';
+import Confetti from 'react-confetti';
 
 const STEPS = [
     {
@@ -73,11 +75,18 @@ const Onboarding = ({ onComplete }) => {
         habits: ['stand', 'water']
     });
 
+    const [showConfetti, setShowConfetti] = useState(false);
+
     const handleNext = () => {
         if (step < STEPS.length - 1) {
             setStep(step + 1);
         } else {
-            onComplete(formData);
+            // "Hazırdır, Başlayaq" - Last step! Show confetti.
+            setShowConfetti(true);
+            setTimeout(() => {
+                onComplete(formData);
+                setShowConfetti(false);
+            }, 3000); // 3 seconds of confetti before unmounting
         }
     };
 
@@ -104,6 +113,18 @@ const Onboarding = ({ onComplete }) => {
             exit={{ opacity: 0, x: -50 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
         >
+            {showConfetti && (
+                <Confetti
+                    width={window.innerWidth}
+                    height={window.innerHeight}
+                    recycle={false}
+                    numberOfPieces={500}
+                    gravity={0.15}
+                    colors={['#56C596', '#4299E1', '#805AD5', '#F6AD55', '#FC8181']}
+                    style={{ position: 'fixed', top: 0, left: 0, zIndex: 9999 }}
+                />
+            )}
+
             <div className={styles.header}>
                 {step > 0 ? (
                     <button className={styles.backBtn} onClick={handleBack}>
@@ -244,34 +265,49 @@ const Onboarding = ({ onComplete }) => {
                         )}
 
                         {currentStep.type === 'time' && (
-                            <input
-                                type="time"
-                                className={styles.timeInput}
-                                value={formData[currentStep.field]}
-                                onChange={e => setFormData({ ...formData, [currentStep.field]: e.target.value })}
-                            />
+                            <div className={styles.timeInputWrapper}>
+                                <input
+                                    type="time"
+                                    className={styles.timeInput}
+                                    value={formData[currentStep.field]}
+                                    onChange={e => setFormData({ ...formData, [currentStep.field]: e.target.value })}
+                                />
+                                <div className={styles.clockIconAbsolute}>
+                                    <AnimatedClock size={28} color="currentColor" />
+                                </div>
+                            </div>
                         )}
 
                         {currentStep.type === 'time-range' && (
                             <div className={styles.timeRangeContainer}>
                                 <div className={styles.timeRangeGroup}>
                                     <label className={styles.timeLabel}>{currentStep.labels.start}</label>
-                                    <input
-                                        type="time"
-                                        className={styles.timeInputSmall}
-                                        value={formData[currentStep.fields.start]}
-                                        onChange={e => setFormData({ ...formData, [currentStep.fields.start]: e.target.value })}
-                                    />
+                                    <div style={{ position: 'relative', display: 'flex' }}>
+                                        <input
+                                            type="time"
+                                            className={styles.timeInputSmall}
+                                            value={formData[currentStep.fields.start]}
+                                            onChange={e => setFormData({ ...formData, [currentStep.fields.start]: e.target.value })}
+                                        />
+                                        <div className={styles.clockIconAbsoluteSmall}>
+                                            <AnimatedClock size={20} color="currentColor" />
+                                        </div>
+                                    </div>
                                 </div>
                                 <div className={styles.timeRangeSeparator}>-</div>
                                 <div className={styles.timeRangeGroup}>
                                     <label className={styles.timeLabel}>{currentStep.labels.end}</label>
-                                    <input
-                                        type="time"
-                                        className={styles.timeInputSmall}
-                                        value={formData[currentStep.fields.end]}
-                                        onChange={e => setFormData({ ...formData, [currentStep.fields.end]: e.target.value })}
-                                    />
+                                    <div style={{ position: 'relative', display: 'flex' }}>
+                                        <input
+                                            type="time"
+                                            className={styles.timeInputSmall}
+                                            value={formData[currentStep.fields.end]}
+                                            onChange={e => setFormData({ ...formData, [currentStep.fields.end]: e.target.value })}
+                                        />
+                                        <div className={styles.clockIconAbsoluteSmall}>
+                                            <AnimatedClock size={20} color="currentColor" />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         )}

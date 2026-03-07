@@ -20,6 +20,16 @@
     justify-content: center;
     flex: 1;
     text-align: center;
+    gap: 16px;
+}
+
+.mascotImage {
+    width: 200px;
+    /* Adjust size based on design */
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 12px 24px rgba(32, 80, 114, 0.25));
 }
 
 .title {
