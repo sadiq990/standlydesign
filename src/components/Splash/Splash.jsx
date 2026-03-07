@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { colors } from '../../theme';
 import styles from './Splash.module.css';
-import mascotImg from '../../assets/mascot.png'; // Gələcək maskot şəkli üçün
+import AnimatedMascot from '../common/AnimatedMascot';
 
 const Splash = ({ onGetStarted }) => {
     const [isClicked, setIsClicked] = useState(false);
@@ -27,7 +27,7 @@ const Splash = ({ onGetStarted }) => {
             transition={{ duration: 0.6, ease: "easeInOut" }}
         >
             <div className={styles.content}>
-                {/* ── Mascot Image (Pulse və Spring Animasiyası) ── */}
+                {/* ── Animated Mascot ── */}
                 <motion.div
                     initial={{ scale: 0, y: 50, opacity: 0 }}
                     animate={{ scale: 1, y: 0, opacity: 1 }}
@@ -38,21 +38,7 @@ const Splash = ({ onGetStarted }) => {
                         delay: 0.1
                     }}
                 >
-                    <motion.img
-                        src={mascotImg}
-                        alt="Standly Mascot"
-                        className={styles.mascotImage}
-                        animate={{
-                            scale: [1, 1.05, 1],
-                            rotate: [0, -3, 3, -1, 0],
-                        }}
-                        transition={{
-                            duration: 3,
-                            ease: "easeInOut",
-                            repeat: Infinity,
-                            repeatType: "mirror"
-                        }}
-                    />
+                    <AnimatedMascot size={200} state="idle" className={styles.mascotImage} />
                 </motion.div>
                 <h1 className={styles.title}>
                     {"Standly".split('').map((char, index) => (
