@@ -7,32 +7,32 @@ import AIChat from './AIChat';
 const aiCategories = [
     {
         id: 'task',
-        title: 'AI Task Köməkçisi',
-        desc: 'Yeni vərdiş və planlama axını (flow) yarat',
+        title: 'AI Task Assistant',
+        desc: 'Organize your day and set up new habits',
         icon: ListTodo,
         gradient: 'linear-gradient(135deg, #205072, #329D9C)',
-        badge: 'Ağıllı',
+        badge: 'Smart',
     },
     {
         id: 'food',
-        title: 'Yemək',
-        desc: 'Restoran tap, sifariş ver, resept al',
+        title: 'Nutrition',
+        desc: 'Find restaurants, recipes, or track meals',
         icon: Utensils,
         gradient: 'linear-gradient(135deg, #F6AD55, #ED8936)',
-        badge: 'Yeni',
+        badge: 'New',
     },
     {
         id: 'health',
-        title: 'Sağlamlıq',
-        desc: 'Sağlam həyata dair məsləhətlər',
+        title: 'Health',
+        desc: 'Advice for a healthier lifestyle',
         icon: HeartPulse,
         gradient: 'linear-gradient(135deg, #FC8181, #F56565)',
         badge: null,
     },
     {
         id: 'finance',
-        title: 'Maliyyə',
-        desc: 'Büdcə planla, xərcləri izlə',
+        title: 'Finance',
+        desc: 'Plan your budget and track expenses',
         icon: Wallet,
         gradient: 'linear-gradient(135deg, #68D391, #38A169)',
         badge: null,
@@ -69,7 +69,7 @@ const AIModal = ({ isOpen, onClose }) => {
                         >
                             <ArrowLeft size={20} strokeWidth={2.5} />
                         </motion.button>
-                        <h2 className={styles.pageTitle}>AI Köməkçi</h2>
+                        <h2 className={styles.pageTitle}>AI Assistant</h2>
                         <div style={{ width: 40 }} />
                     </div>
 
@@ -95,7 +95,7 @@ const AIModal = ({ isOpen, onClose }) => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.18, duration: 0.3 }}
                         >
-                            Kateqoriya seç, başlayaq
+                            Choose a category to start
                         </motion.p>
                     </div>
 
@@ -132,7 +132,7 @@ const AIModal = ({ isOpen, onClose }) => {
                         ))}
                     </div>
 
-                    <p className={styles.footerHint}>✦ AI sizin vərdişlərinizi öyrənir</p>
+                    <p className={styles.footerHint}>✦ AI is learning your habits</p>
 
                     <AnimatePresence>
                         {showChat && <AIChat onClose={() => setShowChat(false)} />}
