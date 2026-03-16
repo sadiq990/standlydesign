@@ -42,7 +42,7 @@ const AnimatedMascot = ({ size = 200, state = 'idle', className, style }) => {
             <motion.svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 611.64 499.59" width="100%" height="auto" style={{ overflow: 'visible' }}>
                 
   <defs>
-    <style>
+    <style>{`
       .cls-1 {
         fill: #3e3023;
       }
@@ -161,7 +161,7 @@ const AnimatedMascot = ({ size = 200, state = 'idle', className, style }) => {
       .cls-19 {
         opacity: .07;
       }
-    </style>
+    `}</style>
     <linearGradient id="linear-gradient" x1="276.27" y1="38.36" x2="366.92" y2="38.36" gradientUnits="userSpaceOnUse">
       <stop offset=".41" stopColor="#73b84f"/>
       <stop offset="1" stopColor="#1c3f1d"/>

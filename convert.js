@@ -9,6 +9,9 @@ svg = svg.replace(/class=/g, 'className=');
 svg = svg.replace(/stop-color/g, 'stopColor');
 svg = svg.replace(/xmlns:xlink=/g, 'xmlnsXlink=');
 
+// Fix style tag for JSX
+svg = svg.replace(/<style>(.*?)<\/style>/s, '<style>{`$1`}</style>');
+
 // Remove main SVG tag wrapper
 svg = svg.replace(/<svg.*?>/, '');
 svg = svg.replace(/<\/svg>/, '');
