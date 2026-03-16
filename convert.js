@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 
 let svg = fs.readFileSync('src/assets/mascot-layered.svg', 'utf8');
 
@@ -96,7 +96,7 @@ const AnimatedMascot = ({ size = 200, state = 'idle', className, style }) => {
 };
 
 export default AnimatedMascot;
-\`;
+`;
 
 fs.writeFileSync('src/components/common/AnimatedMascot.jsx', jsx);
 console.log('Conversion successful!');
