@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Splash from './components/Splash/Splash';
 import Onboarding from './components/Onboarding/Onboarding';
+import Pricing from './components/Pricing/Pricing';
+import Feedback from './components/Feedback/Feedback';
 import Header from './components/Header/Header';
 import Dashboard from './components/Dashboard/Dashboard';
 import ReminderList from './components/Reminders/ReminderList';
@@ -11,8 +13,9 @@ import DayFlow from './components/DayFlow/DayFlow';
 import { colors } from './theme';
 import './index.css';
 
+// Screen flow: splash → onboarding → pricing → feedback → home
 function App() {
-  const [screen, setScreen] = useState('splash'); // 'splash' | 'onboarding' | 'home'
+  const [screen, setScreen] = useState('splash'); // 'splash' | 'onboarding' | 'pricing' | 'feedback' | 'home'
   const [isAIModalOpen, setIsAIModalOpen] = useState(false);
 
   // Default fallback data mimicking what onboarding provides
@@ -36,8 +39,23 @@ function App() {
           <Onboarding key="onboarding" onComplete={(data) => {
             console.log("Onboarding complete:", data);
             setUserData(data);
-            setScreen('home');
+            setScreen('pricing');
           }} />
+        )}
+
+        {screen === 'pricing' && (
+          <Pricing
+            key="pricing"
+            onContinue={() => setScreen('feedback')}
+            onSkip={() => setScreen('feedback')}
+          />
+        )}
+
+        {screen === 'feedback' && (
+          <Feedback
+            key="feedback"
+            onContinue={() => setScreen('home')}
+          />
         )}
 
         {screen === 'home' && (

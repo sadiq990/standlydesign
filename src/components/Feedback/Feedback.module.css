@@ -1,0 +1,412 @@
+/* ══════════════════════════════════════════════
+   FEEDBACK / REVIEW SCREEN — Apple HIG Style
+══════════════════════════════════════════════ */
+
+.container {
+    position: absolute;
+    inset: 0;
+    background: var(--c-bg);
+    display: flex;
+    flex-direction: column;
+    z-index: 200;
+    overflow-y: auto;
+}
+
+.inner {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* ─── Header ─── */
+.header {
+    padding: 54px 28px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.heartWrap {
+    width: 70px;
+    height: 70px;
+    border-radius: 22px;
+    background: linear-gradient(145deg, rgba(50, 157, 156, 0.14), rgba(32, 80, 114, 0.08));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6px;
+    box-shadow:
+        0 8px 24px rgba(50, 157, 156, 0.2),
+        0 0 0 1px rgba(50, 157, 156, 0.12);
+}
+
+.title {
+    font-family: var(--font-hero);
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--c-text-primary);
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--c-text-secondary);
+    line-height: 1.5;
+    max-width: 280px;
+}
+
+/* ─── Star Rating ─── */
+.ratingSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 24px 0;
+    gap: 11px;
+}
+
+.stars {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.starBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.ratingLabel {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--c-text-primary);
+    text-align: center;
+    min-height: 20px;
+}
+
+/* ─── App Store Prompt ─── */
+.appStorePrompt {
+    margin: 16px 20px 0;
+    background: var(--c-surface);
+    border: 1.5px solid var(--c-border);
+    border-radius: 16px;
+    padding: 13px 15px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    box-shadow: var(--shadow-sm);
+}
+
+.appStoreIcon {
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
+    font-size: 24px;
+    background: linear-gradient(135deg, rgba(50, 157, 156, 0.14), rgba(32, 80, 114, 0.08));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.appStoreText {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.appStoreText strong {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--c-text-primary);
+}
+
+.appStoreText span {
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: var(--c-text-secondary);
+}
+
+.appStoreBadge {
+    font-family: var(--font-body);
+    font-size: 10.5px;
+    font-weight: 700;
+    color: #007AFF;
+    background: rgba(0, 122, 255, 0.1);
+    padding: 4px 9px;
+    border-radius: 9999px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* ─── Testimonials ─── */
+.testimonialsSection {
+    padding: 20px 20px 0;
+    flex: 1;
+}
+
+.sectionLabel {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--c-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 11px;
+    color: var(--c-primary-teal);
+}
+
+.testimonialCarousel {
+    position: relative;
+    min-height: 148px;
+}
+
+.testimonialCard {
+    background: var(--c-surface);
+    border-radius: 18px;
+    padding: 16px 17px 13px;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--c-border);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Gradient top bar */
+.testimonialCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--c-primary-teal), var(--c-primary-green));
+}
+
+.quoteIcon {
+    font-size: 48px;
+    line-height: 0.6;
+    color: var(--c-primary-teal);
+    opacity: 0.12;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 700;
+    margin-bottom: 4px;
+    user-select: none;
+}
+
+.testimonialText {
+    font-family: var(--font-body);
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--c-text-primary);
+    margin-bottom: 12px;
+}
+
+.testimonialFooter {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.testimonialAvatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(50, 157, 156, 0.14), rgba(86, 197, 150, 0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.testimonialMeta {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    flex: 1;
+}
+
+.testimonialRoleRow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.testimonialName {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--c-text-primary);
+}
+
+.testimonialRole {
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: var(--c-text-secondary);
+}
+
+.verifiedTag {
+    font-size: 9px;
+    font-weight: 700;
+    color: #56C596;
+    background: rgba(86, 197, 150, 0.1);
+    padding: 1px 5px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+/* ─── Carousel Dots ─── */
+.carouselDots {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 11px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--c-border);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.24s ease;
+    outline: none;
+}
+
+.dotActive {
+    width: 18px;
+    border-radius: 9999px;
+    background: var(--c-primary-teal);
+}
+
+/* ─── Footer / CTA ─── */
+.footer {
+    padding: 18px 20px 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.submitBtn {
+    width: 100%;
+    padding: 16px 20px;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, var(--c-primary-teal), var(--c-primary-dark));
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 15.5px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.15s;
+    box-shadow: 0 10px 26px rgba(50, 157, 156, 0.3);
+    letter-spacing: 0.01em;
+    min-height: 54px;
+}
+
+.submitBtn:not(:disabled):active {
+    transform: scale(0.975);
+}
+
+.submitDisabled {
+    background: var(--c-border);
+    color: var(--c-text-secondary);
+    box-shadow: none;
+    cursor: default;
+    opacity: 0.6;
+}
+
+.laterBtn {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--c-text-secondary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 7px 20px;
+    border-radius: 9999px;
+    transition: color 0.18s, background 0.18s;
+    outline: none;
+}
+
+.laterBtn:hover {
+    color: var(--c-text-primary);
+    background: rgba(0, 0, 0, 0.04);
+}
+
+/* ─── Thank You State ─── */
+.thankYou {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 36px 56px;
+    text-align: center;
+    gap: 13px;
+    min-height: 100vh;
+}
+
+.thankYouEmoji {
+    font-size: 60px;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.thankYouTitle {
+    font-family: var(--font-hero);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--c-text-primary);
+    letter-spacing: -0.025em;
+}
+
+.thankYouSub {
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    color: var(--c-text-secondary);
+    line-height: 1.6;
+    max-width: 290px;
+}
+
+.continueBtn {
+    margin-top: 18px;
+    padding: 16px 52px;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, var(--c-primary-teal), var(--c-primary-dark));
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 28px rgba(50, 157, 156, 0.32);
+    transition: transform 0.18s, opacity 0.18s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.continueBtn:active {
+    transform: scale(0.97);
+    opacity: 0.9;
+}

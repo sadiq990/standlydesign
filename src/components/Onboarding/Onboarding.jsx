@@ -14,8 +14,8 @@ const STEPS = [
         id: 'wakeup',
         icon: Sunrise,
         iconColor: '#F6AD55',
-        title: "Səhər neçədə oyanırsınız?",
-        subtitle: "İlk xatırlatmaları bu saata uyğun tənzimləyəcəyik",
+        title: "What time do you wake up?",
+        subtitle: "We'll schedule your first reminders around this time",
         type: 'time',
         field: 'wakeTime'
     },
@@ -23,8 +23,8 @@ const STEPS = [
         id: 'sleep',
         icon: Moon,
         iconColor: '#805AD5',
-        title: "Bəs neçədə yatırsınız?",
-        subtitle: "Yuxu rejiminiz... Bu saatdan sonra bildiriş göndərmirik 🌙",
+        title: "What time do you go to sleep?",
+        subtitle: "We won't send any notifications after your bedtime 🌙",
         type: 'time',
         field: 'sleepTime'
     },
@@ -32,36 +32,36 @@ const STEPS = [
         id: 'work',
         icon: Building2,
         iconColor: '#4299E1',
-        title: "İş / Dərs rejiminiz",
-        subtitle: "Ofis modunu aktivləşdirib məhsuldar saatlarınızı təyin edək",
+        title: "Work / Study hours",
+        subtitle: "Set your productive hours and we'll optimize reminders for you",
         type: 'time-range',
         fields: { start: 'workStart', end: 'workEnd' },
-        labels: { start: 'Başlayır', end: 'Bitir' }
+        labels: { start: 'Starts', end: 'Ends' }
     },
     {
         id: 'lunch',
         icon: UtensilsCrossed,
         iconColor: '#56C596',
-        title: "Nahar fasiləniz",
-        subtitle: "Günün tam ortasında enerjinizi bərpa etmək üçün",
+        title: "When is your lunch break?",
+        subtitle: "A perfect moment to recharge in the middle of the day",
         type: 'time',
         field: 'lunchTime'
     },
     {
         id: 'habits',
-        title: "Gün ərzində nələri xatırladaq?",
-        subtitle: "İstədiyini seç, daha sonra nizamlamalardan dəyişə bilərsən",
+        title: "What should we remind you?",
+        subtitle: "Pick one or more — you can always change these in settings",
         type: 'multi',
         field: 'habits'
     }
 ];
 
 const HABITS = [
-    { id: 'stand', label: 'Ayağa qalxmaq', sub: 'Hər saat', icon: PersonStanding, color: '#56C596' },
-    { id: 'water', label: 'Su içmək', sub: 'Mütəmadi', icon: Droplets, color: '#4299E1' },
-    { id: 'eyes', label: 'Göz fasiləsi', sub: '20-20-20', icon: Eye, color: '#805AD5' },
-    { id: 'stretch', label: 'Qısa dartınma', sub: '5 dəqiqə', icon: Dumbbell, color: '#F6AD55' },
-    { id: 'posture', label: 'Onurğa dikliyi', sub: 'Yoxlama', icon: Heart, color: '#FC8181' },
+    { id: 'stand', label: 'Stand Up', sub: 'Every hour', icon: PersonStanding, color: '#56C596' },
+    { id: 'water', label: 'Drink Water', sub: 'Stay hydrated', icon: Droplets, color: '#4299E1' },
+    { id: 'eyes', label: 'Eye Break', sub: '20-20-20 rule', icon: Eye, color: '#805AD5' },
+    { id: 'stretch', label: 'Quick Stretch', sub: '5 minutes', icon: Dumbbell, color: '#F6AD55' },
+    { id: 'posture', label: 'Posture Check', sub: 'Sit straight', icon: Heart, color: '#FC8181' },
 ];
 
 const Onboarding = ({ onComplete }) => {
@@ -81,12 +81,11 @@ const Onboarding = ({ onComplete }) => {
         if (step < STEPS.length - 1) {
             setStep(step + 1);
         } else {
-            // "Hazırdır, Başlayaq" - Last step! Show confetti.
             setShowConfetti(true);
             setTimeout(() => {
                 onComplete(formData);
                 setShowConfetti(false);
-            }, 3000); // 3 seconds of confetti before unmounting
+            }, 3000);
         }
     };
 
@@ -155,7 +154,6 @@ const Onboarding = ({ onComplete }) => {
                         exit={{ x: -24, opacity: 0 }}
                         transition={{ duration: 0.28, ease: 'easeOut' }}
                     >
-                        {/* Step icon (for time steps) */}
                         {currentStep.icon && (
                             <motion.div className={styles.stepIconWrap}
                                 initial={{ scale: 0.5, rotate: -10 }}
@@ -235,7 +233,6 @@ const Onboarding = ({ onComplete }) => {
                                         >
                                             <currentStep.icon size={32} color={currentStep.iconColor} strokeWidth={2} />
                                         </motion.div>
-                                        {/* Steam particles */}
                                         <motion.div
                                             initial={{ opacity: 0, y: 0, x: -8 }}
                                             animate={{ opacity: [0, 0.8, 0], y: -16, x: -12 }}
@@ -356,7 +353,7 @@ const Onboarding = ({ onComplete }) => {
                     whileTap={{ scale: 0.96 }}
                     onClick={handleNext}
                 >
-                    {step === STEPS.length - 1 ? "Hazırdır, Başlayaq! 🚀" : "Davam et →"}
+                    {step === STEPS.length - 1 ? "All set, let's go! 🚀" : "Continue →"}
                 </motion.button>
             </div>
         </motion.div>

@@ -1,0 +1,579 @@
+/* ══════════════════════════════════════════════
+   PRICING SCREEN — Apple HIG Style
+   Standly Premium Paywall
+══════════════════════════════════════════════ */
+
+/* ─── Scroll Container ─── */
+.container {
+    position: absolute;
+    inset: 0;
+    background: var(--c-bg);
+    display: flex;
+    flex-direction: column;
+    z-index: 200;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* ─── Close Button ─── */
+.closeBtn {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 300;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(120, 120, 128, 0.18);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--c-text-secondary);
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+    backdrop-filter: blur(6px);
+}
+
+.closeBtn:hover {
+    background: rgba(120, 120, 128, 0.3);
+    color: var(--c-text-primary);
+}
+
+/* ─── HERO ─── */
+.hero {
+    padding: 52px 28px 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.appIconWrap {
+    width: 76px;
+    height: 76px;
+    border-radius: 22px;
+    background: linear-gradient(145deg, rgba(50, 157, 156, 0.18), rgba(32, 80, 114, 0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    box-shadow:
+        0 12px 32px rgba(50, 157, 156, 0.22),
+        0 0 0 1px rgba(50, 157, 156, 0.15);
+}
+
+.appIcon {
+    font-size: 36px;
+    line-height: 1;
+}
+
+.heroTitle {
+    font-family: var(--font-hero);
+    font-size: 27px;
+    font-weight: 700;
+    color: var(--c-text-primary);
+    letter-spacing: -0.03em;
+    margin-bottom: 7px;
+    line-height: 1.2;
+}
+
+.heroSub {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--c-text-secondary);
+    line-height: 1.5;
+    margin-bottom: 4px;
+}
+
+/* Trust message */
+.trustMsg {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--c-primary-teal);
+    font-weight: 500;
+    margin-bottom: 14px;
+    opacity: 0.8;
+}
+
+/* Trial badge pill */
+.trialPill {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(50, 157, 156, 0.12), rgba(86, 197, 150, 0.08));
+    border: 1px solid rgba(50, 157, 156, 0.28);
+    border-radius: 9999px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--c-primary-teal);
+    padding: 6px 14px;
+    font-family: var(--font-body);
+    letter-spacing: 0.01em;
+}
+
+/* ─── PLANS ─── */
+.plansWrapper {
+    padding: 4px 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.planCard {
+    position: relative;
+    background: var(--c-surface);
+    border: 2px solid var(--c-border);
+    border-radius: 18px;
+    padding: 15px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease, transform 0.15s ease;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+}
+
+.planFeatured {
+    padding-top: 38px;
+    border-color: rgba(50, 157, 156, 0.4);
+    box-shadow: 0 8px 24px rgba(50, 157, 156, 0.12);
+}
+
+.planWeekly {
+    opacity: 0.85;
+    border-style: dashed;
+}
+
+.planCard:active {
+    transform: scale(0.985);
+}
+
+.planSelected {
+    box-shadow: 0 6px 22px rgba(50, 157, 156, 0.2);
+}
+
+/* "Most Popular" stripe */
+.featuredStripe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #fff;
+    font-family: var(--font-body);
+    border-radius: 16px 16px 0 0;
+}
+
+/* "Save 70%" pill */
+.savingsBadge {
+    position: absolute;
+    top: 38px;
+    right: 14px;
+    background: linear-gradient(135deg, #F6AD55, #DD6B20);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 9999px;
+    font-family: var(--font-body);
+    pointer-events: none;
+}
+
+/* Plan left side */
+.planLeft {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    min-width: 0;
+}
+
+/* Radio circle */
+.radio {
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    border: 2px solid var(--c-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.radioDot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #fff;
+}
+
+/* Plan text */
+.planInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+}
+
+.planNameRow {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-wrap: wrap;
+}
+
+.planName {
+    font-family: var(--font-hero);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--c-text-primary);
+    letter-spacing: -0.01em;
+    line-height: 1;
+}
+
+.planSublabel {
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 9999px;
+    letter-spacing: 0.02em;
+}
+
+.planBillingRow {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5px;
+}
+
+.planBilling {
+    font-family: var(--font-body);
+    font-size: 11.5px;
+    color: var(--c-text-secondary);
+    font-weight: 400;
+}
+
+.planPerWeekDetail {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--c-primary-teal);
+    opacity: 0.9;
+}
+
+/* Plan right — price */
+.planRight {
+    display: flex;
+    align-items: baseline;
+    gap: 1px;
+    flex-shrink: 0;
+}
+
+.planPrice {
+    font-family: var(--font-hero);
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--c-text-primary);
+    letter-spacing: -0.02em;
+    transition: color 0.2s;
+}
+
+.planPeriod {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--c-text-secondary);
+    margin-left: 1px;
+}
+
+/* ─── FEATURES ─── */
+.features {
+    margin: 20px 20px 0;
+    background: var(--c-surface);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--c-border);
+}
+
+.featureRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--c-border);
+    transition: background 0.15s;
+}
+
+.featureRow:last-child {
+    border-bottom: none;
+}
+
+.featureIconWrap {
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, rgba(50, 157, 156, 0.15), rgba(32, 80, 114, 0.08));
+    color: var(--c-primary-teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.featureText {
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--c-text-primary);
+}
+
+/* ─── CTA ─── */
+.ctaSection {
+    padding: 20px 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.ctaBtn {
+    width: 100%;
+    padding: 17px 24px;
+    border-radius: 9999px;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+    box-shadow: 0 10px 28px rgba(50, 157, 156, 0.35);
+    transition: opacity 0.2s, transform 0.15s;
+}
+
+.ctaBtn:disabled {
+    opacity: 0.72;
+    cursor: default;
+}
+
+.ctaBtn:not(:disabled):active {
+    transform: scale(0.975);
+}
+
+.ctaNote {
+    font-family: var(--font-body);
+    font-size: 11.5px;
+    color: var(--c-text-secondary);
+    text-align: center;
+    line-height: 1.6;
+    padding: 0 16px;
+}
+
+.ctaNote strong {
+    color: var(--c-text-primary);
+    font-weight: 600;
+}
+
+/* Loading spinner */
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 2.5px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.65s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ─── REVIEWS ─── */
+.reviewsSection {
+    padding: 24px 20px 0;
+}
+
+.reviewsTitle {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--c-text-secondary);
+    margin-bottom: 12px;
+    padding-left: 2px;
+}
+
+.reviewsGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.reviewCard {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: 16px;
+    padding: 14px 16px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* Accent left bar */
+.reviewCard::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--c-primary-teal), var(--c-primary-green));
+    border-radius: 0 2px 2px 0;
+}
+
+.reviewStars {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 7px;
+}
+
+.reviewText {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-style: italic;
+    color: var(--c-text-primary);
+    line-height: 1.55;
+    margin-bottom: 10px;
+}
+
+.reviewAuthor {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.reviewAvatar {
+    font-size: 18px;
+    line-height: 1;
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, rgba(50, 157, 156, 0.12), rgba(86, 197, 150, 0.1));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reviewName {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--c-text-secondary);
+}
+
+/* ─── FOOTER LINKS ─── */
+.footerLinks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 24px 20px 0;
+}
+
+.secureBadge {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--c-text-secondary);
+    background: rgba(120, 120, 128, 0.08);
+    padding: 4px 10px;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    opacity: 0.8;
+}
+
+.footerLinksRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footerLink {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--c-text-secondary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px 2px;
+    transition: color 0.18s;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: transparent;
+}
+
+.footerLink:hover {
+    color: var(--c-primary-teal);
+    text-decoration-color: var(--c-primary-teal);
+}
+
+.footerDot {
+    font-size: 13px;
+    color: var(--c-border);
+    user-select: none;
+}
+
+/* ─── Bottom spacer ─── */
+.bottomSpacer {
+    height: 48px;
+    flex-shrink: 0;
+}
+
+/* ─── Dark Mode overrides ─── */
+:root[data-theme="dark"] .closeBtn {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+:root[data-theme="dark"] .planCard {
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
+}
+
+:root[data-theme="dark"] .reviewCard {
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
+}
+
+:root[data-theme="dark"] .features {
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .closeBtn {
+        background: rgba(255, 255, 255, 0.1);
+    }
+    :root:not([data-theme="light"]) .planCard,
+    :root:not([data-theme="light"]) .reviewCard {
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
+    }
+}
